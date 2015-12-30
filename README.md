@@ -24,7 +24,7 @@ Faites un git clone du projet.
 > clone https://github.com/wmnasri/grandluxuryhotels.git
 
 - Ouvrir un terminale et mettez vous sur le projet grandluxuryhotels
-- 
+ 
 ```shell
 > cd path/to/grandluxuryhotels
 ```
@@ -37,7 +37,7 @@ Faites un git clone du projet.
 
 ## Configuration de la VM
 
-Nous avons configuré l'ip de la VM auprès du reseau de l'hote a 192.168.33.3 
+j'ai configuré l'ip de la VM auprès du reseau de l'hote a 192.168.33.3 
 Le nom choisi pour la vm est "grandluxuryhotels" et la RAM allouée de 1GB
 
 Dans le "vagrantFile" :
@@ -50,7 +50,7 @@ Dans le "vagrantFile" :
   end
 ```
 
-Les configurations est deja faites, vous pouvez changer cela si vous voulez.
+Les configurations sont déjà faites, vous pouvez changer cela si vous voulez.
 
 - rajoutez le nom 'grandluxuryhotels' dans votre fichier hosts
 
@@ -71,10 +71,10 @@ Les configurations est deja faites, vous pouvez changer cela si vous voulez.
 L'idée de base du travail avec les VM Vagrant est d'utiliser pour les projets 
 des repertoires partagés entre le serveur et le client.
 
-Nous avons déjà monté le répertoire du projet grandluxuryhotels dans Vagrant, 
+J'ai déjà monté le répertoire du projet grandluxuryhotels dans Vagrant, 
 comme étant un répertoire partagé dans */vagrant*. 
 
-Vous pouvez vérifier en passant par la console SSH de notre machine (utilisez VirtualBox, putty et si vous travaillez sur Zend Studio vous pouvez utilisez l'extension "Terminal")
+Vous pouvez vérifier en passant par la console SSH de notre machine (utilisez VirtualBox ou putty et si vous travaillez sur Zend Studio vous pouvez utilisez directement l'extension "Terminal")
 
 ```shell
 > ls /vagrant
@@ -83,4 +83,12 @@ Vous verrez le repertoire grandluxuryhotels.
 
 ### Initialisation du projet
 
-Tous les configurations Apache2 mysql, php sont Preinstallés ("provisionnés") dans le fichier provision/setup.sh
+Tous les configurations Apache2, mysql et php sont preinstallés ("provisionnés") dans le fichier provision/setup.sh
+
+### PhpMyAdmin 
+
+- Vous pouvez accéder à la base de données via phpMyAdmin qui est provisionné sur lien suivant 
+
+> http://192.168.33.3/phpmyadmin
+
+
