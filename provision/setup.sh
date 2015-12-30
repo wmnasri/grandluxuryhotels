@@ -51,7 +51,7 @@ echo "Restart apache..."
 sudo service apache2 restart
 
 # Add new hostnames to hosts file
-sudo echo  "127.0.0.1 grandluxuryhotels" > /etc/hosts
+sudo echo  "127.0.0.1 test.grandluxuryhotels" > /etc/hosts
 
 #Install Git 
 echo 'Installing Git...'

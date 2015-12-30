@@ -52,12 +52,12 @@ Dans le "vagrantFile" :
 
 Les configurations sont déjà faites, vous pouvez changer cela si vous voulez.
 
-- rajoutez le nom 'grandluxuryhotels' dans votre fichier hosts
+- rajoutez le nom 'test.grandluxuryhotels' dans votre fichier hosts
 
 > sous Windows, c:/Windows/system32/drivers/etc/hosts
 
 ```shell
-192.168.33.3 grandluxuryhotels
+192.168.33.3 test.grandluxuryhotels
 ```
 
 ## Configuration de la VM
@@ -84,6 +84,10 @@ Vous verrez le repertoire grandluxuryhotels.
 ### Initialisation du projet
 
 Tous les configurations Apache2, mysql et php sont preinstallés ("provisionnés") dans le fichier provision/setup.sh
+
+Allez sur ce lien et vérifiez la phrase "Hello Grand Luxury Hotels" sur la page.
+
+> http://test.grandluxuryhotels/   
 
 ### PhpMyAdmin 
 
