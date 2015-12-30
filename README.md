@@ -87,8 +87,8 @@ Tous les configurations Apache2, mysql et php sont preinstallés ("provisionnés
 
 ### PhpMyAdmin 
 
-- Vous pouvez accéder à la base de données via phpMyAdmin qui est provisionné sur lien suivant 
+Vous pouvez accéder à la base de données via phpMyAdmin qui est provisionné sur lien suivant 
 
 > http://192.168.33.3/phpmyadmin
 
-
+Connectez-vous sur l'IHM phpMyAdmin avec root/root.
