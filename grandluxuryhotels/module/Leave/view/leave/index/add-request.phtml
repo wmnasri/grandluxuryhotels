@@ -9,23 +9,23 @@
         <?php
         $this->entryForm->setAttribute('action', $this->url('add-request', ['id' => $idEmployee]));
         $this->entryForm->setAttribute('method', 'post');
+        $this->entryForm->setAttribute('data-toggle', "validator");
+        $this->entryForm->setAttribute('role', "form");
         $this->entryForm->prepare();
         echo $this->form()->openTag($this->entryForm) 
         ?>
-        <table class='form-table'>
-            <tr>
-                <td><label><?php $dateDebut = $this->entryForm->get('DateDebut'); echo $this->formLabel($dateDebut); ?></label></td>
-                <td><?php echo $this->formDate($dateDebut) . $this->formElementErrors($dateDebut); ?></td>
-            </tr>
-            <tr>
-                 <td><label><?php echo $this->formLabel($this->entryForm->get('DateEnd')); ?></label></td>
-                 <td><?php echo $this->formDate($this->entryForm->get('DateEnd')) . $this->formElementErrors($this->entryForm->get('DateEnd')); ?></td>
-             </tr>
-             <tr>
-                <td><label><?php echo $this->formLabel($this->entryForm->get('comment')); ?></label></td>
-                <td><?php echo $this->formTextarea($this->entryForm->get('comment')) . $this->formElementErrors($this->entryForm->get('comment')); ?></td>
-            </tr>
-        </table>
+        <div class="form-group">
+            <label><?php $dateDebut = $this->entryForm->get('DateDebut'); echo $this->formLabel($dateDebut); ?></label>
+            <?php echo $this->formDate($dateDebut) . $this->formElementErrors($dateDebut); ?>
+         </div>
+         <div class="form-group">
+             <label><?php echo $this->formLabel($this->entryForm->get('DateEnd')); ?></label>
+             <?php echo $this->formDate($this->entryForm->get('DateEnd')) . $this->formElementErrors($this->entryForm->get('DateEnd')); ?>
+         </div>
+         <div class="form-group">
+              <label><?php echo $this->formLabel($this->entryForm->get('comment')); ?></label>
+              <?php echo $this->formTextarea($this->entryForm->get('comment')) . $this->formElementErrors($this->entryForm->get('comment')); ?>
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>

@@ -11,12 +11,15 @@ class Entry extends Form
 
         $this->add(array(
             'name' => 'DateDebut',
+            'type' => 'Zend\Form\Element\Date',
             'options' => array(
                 'label' => 'Date de début',
+                'format' => 'd/m/Y'
             ),
             'attributes' => array(
                 'type' => 'text',
-                'class'  => 'datepicker'
+                'class'  => 'form-control',
+                'required'
                 
             ),
         ));
@@ -27,8 +30,9 @@ class Entry extends Form
                 'label' => 'Date de fin',
             ),
             'attributes' => array(
-                'type' => 'text',
-                'class'  => 'datepicker'
+                'type'   => 'text',
+                'class'  => 'form-control',
+                'required'
             ),
         ));
 
@@ -39,7 +43,8 @@ class Entry extends Form
             ),
             'attributes' => array(
                 'type' => 'textarea',
-                'class'  => 'textarea'
+                'class'  => 'textarea form-control',
+                'placeholder' => 'votre remarque'
             ),
         ));
 

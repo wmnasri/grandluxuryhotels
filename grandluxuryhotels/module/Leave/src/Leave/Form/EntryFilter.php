@@ -13,26 +13,21 @@ class EntryFilter extends InputFilter
             'filters' => array(
                 array('name' => 'StringTrim')
             ),
-           'validators'=>array(
-                array(  
-                    'name'=>'Date',
-                    'break_chain_on_failure'=>true,
-                    'options'=>array(
-                        'format'=>'d/m/Y',
-                        'messages'=>array(
-                            'dateFalseFormat'=>'Invalid date format, must be d/m/yy', 
-                            'dateInvalidDate'=>'Invalid date, must be d/m/yy'
+           'validators' => array(
+                    array(
+                        'name' => 'Callback',
+                        'options' => array(
+                            'messages' => array(
+                                    \Zend\Validator\Callback::INVALID_VALUE => 'The end date should be greater than start date',
+                            ),
+                            'callback' => function($value, $context = array()) {                                    
+                                $startDate = \DateTime::createFromFormat('d-m-Y', $context['start_date']);
+                                $endDate = \DateTime::createFromFormat('d-m-Y', $value);
+                                return $endDate >= $startDate;
+                            },
                         ),
-                    ),      
-                ),      
-                array(  
-                    'name'=>'Regex',
-                    'options'=>array(
-                        'messages'=>array('regexNotMatch'=>'Invalid date format, must be d/m/yy'),
-                        'pattern'=>'/^\d{1,2}-\d{1,2}-\d{4}$/',
-                    ),      
-                ),      
-            ),   
+                    ),                          
+                ),
         ));
         
         $this->add(array(
