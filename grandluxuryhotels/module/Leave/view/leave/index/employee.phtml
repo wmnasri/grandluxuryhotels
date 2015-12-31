@@ -1,0 +1,58 @@
+<style>
+table {
+	width:700px;
+}
+td, th {
+	width : 300px;
+	height :50px;
+	border-bottom : 1px solid #ccc;
+}
+</style>
+<div id="wrapper">
+	<!-- end #header -->
+	<div id="page">
+	   <div style= 'width:1100px'>
+    	   <div style = 'width:350px;position:relative; height:600px;float:left'>
+    	       <h3>Liste des Employées</h3>
+    	       <ul>
+    	           <?php foreach ($employees as $employee):?>
+    	           <li><a href="<?= $this->url('employee', ['id' => $employee['id']])?>"><?= $employee['name']?></a></li>
+    	           <?php endforeach;?>
+    	       </ul>
+    	   </div>
+    	   
+	       <div style ='width:690px;position:relative; height:600px;float:left'>
+                <table>
+                    <tHead>
+                        <th>Date de debut</th>
+                        <th>Date de fin</th>
+                        <th>Commentaire</th>
+                        <th>Action</th>
+                    </tHead>
+                    <?php if($leaveEmployee) :?>
+                    <tBody>
+                    <?php foreach ($leaveEmployee as $employee):?>
+                        <tr> 
+                            <td><?php $dateDebut = new DateTime($employee['start_date']);
+                            echo $dateDebut->format('d/m/Y')?></td>
+                            <td><?php $dateFin = new DateTime($employee['end_date']);
+                            echo $dateFin->format('d/m/Y')?></td>
+                            <td><?= $employee['comment'];?></td>
+                            <td><?php if ($employee['status'] == Leave\Model\Leave::STATUS_PENDING) :?>
+                                Demande en attente
+                                <?php elseif ($employee['status'] == Leave\Model\Leave::STATUS_APPROVED) : ?>
+                                Congé approuvé
+                                <?php elseif ($employee['status'] == Leave\Model\Leave::STATUS_REFUSED) :?>
+                                Congé refusé
+                                <?php endif;?>
+                            </td>
+                        </tr>
+                    <?php endforeach;?>
+                    </tBody>
+                    <?php endif;?>
+                </table>
+            </div>
+            
+        </div>
+    </div>
+</div>

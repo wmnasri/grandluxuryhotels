@@ -10,12 +10,22 @@
 namespace Application\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
-use Zend\View\Model\ViewModel;
 
 class IndexController extends AbstractActionController
 {
     public function indexAction()
     {
-        return new ViewModel();
+        $request = $this->getRequest();
+        if ($request->isPost()) {
+            $identifiant = $this->params()->fromPost('login');
+            $employeeTbale = $this->getServiceLocator()->get('employee_table');
+            $user = $employeeTbale->getRoleByLogin($identifiant);
+            
+            if ($user[0]['status'] == 1) {
+                return $this->redirect()->toRoute('leave');
+            } else {
+                return $this->redirect()->toRoute('list-leave' , ['id' => $user[0]['id']]);
+            }
+        }
     }
 }
