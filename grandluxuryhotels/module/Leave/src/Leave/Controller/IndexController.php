@@ -91,7 +91,8 @@ class IndexController extends AbstractActionController
         
         return new ViewModel([
             'employees'     => $allEmployees,
-            'leaveEmployee' => $leaveByEmployee
+            'leaveEmployee' => $leaveByEmployee,
+            'id'            => $id
         ]);
     }
 }
