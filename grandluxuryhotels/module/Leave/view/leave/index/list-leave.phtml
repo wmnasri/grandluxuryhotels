@@ -1,19 +1,25 @@
 <style>
 table {
-	width:900px;
+	width:1000px;
+}
+th {
+	color: #387FBC;
+	background: #DEE3E8;
 }
 td, th {
-	width : 300px;
 	height :50px;
 	border-bottom : 1px solid #ccc;
+	text-align:center;
 }
 </style>
-<div class='addrequest'>
-    <a href = '<?= $this->url('add-request', ['id' => $idEmployee])?>'> Créer une nouvelle demande </a>
-</div>
+
 <div id="wrapper">
 	<!-- end #header -->
 	<div id="page">
+	    <div class="btn-group">
+    	   <a href='<?= $this->url('add-request', ['id' => $idEmployee])?>' class= 'btn btn-default'> Créer une nouvelle demande</a>
+    	</div>
+    	<BR><BR>
     	<table>
             <tHead>
                 <th>Date Début</th>
