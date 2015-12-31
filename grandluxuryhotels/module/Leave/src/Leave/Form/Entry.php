@@ -16,7 +16,7 @@ class Entry extends Form
             ),
             'attributes' => array(
                 'type' => 'text',
-                'class'  => 'input'
+                'class'  => 'datepicker'
                 
             ),
         ));
@@ -28,7 +28,7 @@ class Entry extends Form
             ),
             'attributes' => array(
                 'type' => 'text',
-                'class'  => 'input'
+                'class'  => 'datepicker'
             ),
         ));
 
@@ -48,7 +48,7 @@ class Entry extends Form
             'attributes' => array(
                 'type'  => 'submit',
                 'value' => 'Envoyer',
-                'class' => 'btn'
+                'class' => 'btn btn-primary'
             ),
         ));
     }

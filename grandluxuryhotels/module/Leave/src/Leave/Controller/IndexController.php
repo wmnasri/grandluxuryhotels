@@ -32,22 +32,24 @@ class IndexController extends AbstractActionController
     {
         $idEmployee = $this->getEvent()->getRouteMatch()->getParam('id');
         $leaveByEmployee = $this->getEntryService()->findAllLeaveByEmployee($idEmployee);
-        
+        $requestForm = $this->getServiceLocator()->get('request_leave_form');
+  
         return new ViewModel([
             'leaves'   => $leaveByEmployee,
-            'idEmployee' => $idEmployee
+            'idEmployee' => $idEmployee,
+            'entryForm'   => $requestForm,
         ]);
     }
     
     public function addRequestAction ()
     {
-        $requestForm = $this->getServiceLocator()->get('request_leave_form');
         $idEmployee = $this->getEvent()->getRouteMatch()->getParam('id');
         
         $request = $this->getRequest();
         if ($request->isPost()) {
             $dateDebut = new \DateTime($this->params()->fromPost('dateStart'));
             $dateFin = new \DateTime($this->params()->fromPost('dateEnd'));
+            
             $data = [
                 'employee_id' => $idEmployee,
                 'start_date'  => $dateDebut->format('Y-m-d'),
@@ -58,11 +60,6 @@ class IndexController extends AbstractActionController
             $this->getEntryService()->addNewRequest($data);
             return $this->redirect()->toRoute('list-leave' , ['id' => $idEmployee]);
         }
-        
-        return new ViewModel([
-            'entryForm'   => $requestForm,
-            'idEmployee' => $idEmployee
-        ]);
     }
     
     public function refuseAction()

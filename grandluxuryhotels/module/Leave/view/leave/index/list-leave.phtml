@@ -11,14 +11,18 @@ td, th {
 	border-bottom : 1px solid #ccc;
 	text-align:center;
 }
+table.form-table td, table.form-table th{
+	border-bottom : 0 !important;
+	text-align:left !important;
+}
 </style>
 
 <div id="wrapper">
 	<!-- end #header -->
 	<div id="page">
-	    <div class="btn-group">
-    	   <a href='<?= $this->url('add-request', ['id' => $idEmployee])?>' class= 'btn btn-default'> Créer une nouvelle demande</a>
-    	</div>
+    	<button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+            Ajouter une nouvelle demande
+        </button>  
     	<BR><BR>
     	<table>
             <tHead>
@@ -50,3 +54,5 @@ td, th {
 	</div>
 	<!-- end #page -->
 </div>
+
+<?= $this->partial('add-request.phtml');?>
